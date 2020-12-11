@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-export const TechStackSchema = new mongoose.Schema ({
+const TechStackSchema = new mongoose.Schema ({
   name: { type: String },
   description: { type: String },
-  active: { type: Boolean, default: false }
+  active: { type: Boolean, default: true }
 })
 
 export const TechStacks = mongoose.model('TechStacks', TechStackSchema);

@@ -7,8 +7,9 @@ import { projectTypeRouter } from './routes/projectType.router.js';
 import { projectStatusRouter } from './routes/projectStatus.router.js';
 import { clientGroupRouter } from './routes/clientGroup.router.js';
 import { techStackRouter } from './routes/techStack.router.js';
-import { employeeRouter } from './routes/employee.router.js'
-
+import { employeeRouter } from './routes/employee.router.js';
+import { projectRouter } from './routes/project.router.js';
+import { departmentRouter } from "./routes/department.router.js";
 
 // app init
 const app = express();
@@ -19,7 +20,7 @@ app.listen(port, () => {
 
 
 // connect mongoose 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect('mongodb://localhost/projectManagement', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
@@ -43,6 +44,8 @@ app.use('/api', [
   projectStatusRouter,
   clientGroupRouter,
   techStackRouter,
-  employeeRouter
+  employeeRouter,
+  projectRouter,
+  departmentRouter
 ]);
 

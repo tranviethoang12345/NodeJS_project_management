@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-export const ProjectStatusSchema = new mongoose.Schema ({
+const ProjectStatusSchema = new mongoose.Schema ({
   name: { type: String },
   description: { type: String },
-  active: { type: Boolean, default: false }
+  active: { type: Boolean, default: true }
 })
 
 export const ProjectStatus = mongoose.model('ProjectStatus', ProjectStatusSchema);

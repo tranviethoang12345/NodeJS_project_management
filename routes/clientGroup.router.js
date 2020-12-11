@@ -4,7 +4,7 @@ import express from 'express';
 const router = express.Router();
 
 router.post('/clientgroups', createOne);
-///kkkkasd
+
 router.get('/clientgroups/:id', getOneById);
 
 router.put('/clientgroups/:id', updateOne);

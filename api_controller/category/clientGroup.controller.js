@@ -11,6 +11,7 @@ export const createOne = async (req, res) => {
   }
 };
 
+
 export const getAll = async (req, res) => {
   try {  
     const result = await ClientGroups.find();

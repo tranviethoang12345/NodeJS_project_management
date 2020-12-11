@@ -3,15 +3,15 @@ import express from 'express';
 
 const router = express.Router();
 
-router.post('/projects/status', createOne);
+router.post('/projects-status', createOne);
 
-router.get('/projects/status/:id', getOneById);
+router.get('/projects-status/:id', getOneById);
 
-router.put('/projects/status/:id', updateOne);
+router.put('/projects-status/:id', updateOne);
 
-router.delete('/projects/status/:id', deleteOne);
+router.delete('/projects-status/:id', deleteOne);
 
-router.get('/projects/status', getAll);
+router.get('/projects-status', getAll);
 
 export { router as projectStatusRouter };
 

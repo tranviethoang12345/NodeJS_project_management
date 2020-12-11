@@ -7,7 +7,7 @@ export const getSuccess = (data) => {
   }
 }
 
-export const createSuccess = (data,name) => { 
+export const createSuccess = (data) => { 
   return {
     message: `created successfully`,
     messageCode: `CREATED SUCCESSFULLY`, 

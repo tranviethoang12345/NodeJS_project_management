@@ -1,26 +1,26 @@
 import mongoose from 'mongoose';
+import { Projects } from './project.model.js';
+import { TechStacks } from '../category/techStack.model.js';
 
-const EmployeeSchema = new mongoose.Schema(
+const Schema = mongoose.Schema;
+
+const EmployeeSchema = new Schema(
   {
     info: {
       fullName: { type: String },
-      dateOfBirth: { type: Date },
+      dateOfBirth: { type: String },
       phoneNumber: { type: Number },
       address: { type: String },
       email: { type: String },
-      language: [String],
-      certificate: [String],
-      department: DepartmentSchema,
     },
 
-    experience: [
-      {
-        techstack: [ TechStackSchema ],
-        exp: { type: Number }
+    skill: [ {
+        techstack: { type: Schema.Types.ObjectId, ref: 'TechStacks' },
+        exp_year: { type: String }
       }
     ],
 
-    project: [ProjectSchema],
+    project: { type: Schema.Types.ObjectId, ref: Projects },
     
   },
   { timestamps: true }
