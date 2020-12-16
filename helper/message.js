@@ -11,7 +11,7 @@ export const createSuccess = (data) => {
   return {
     message: `created successfully`,
     messageCode: `CREATED SUCCESSFULLY`, 
-    status: 200,
+    status: 201,
     data: data
   }
 }
@@ -29,18 +29,18 @@ export const deleteSuccess = () => {
   return {
     message: `deleted successfully`,
     messageCode: `DELETED SUCCESSFULLY`, 
-    status: 200,
+    status: 204,
   }
 }
 
-// export const notFound = () => {
-//   return {
-//     message: `not found`,
-//     messageCode: `NOT FOUND`,
-//     status: 400,
-//     data: []
-//   }
-// }
+export const notFound = () => {
+  return {
+    message: `not found`,
+    messageCode: `NOT FOUND`,
+    status: 404,
+    data: []
+  }
+}
 
 export const invalid = (err) => {
   return {

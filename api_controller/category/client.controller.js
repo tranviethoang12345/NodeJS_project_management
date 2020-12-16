@@ -1,10 +1,10 @@
-import { ClientGroups } from '../../model/category/clientGroup.model.js';
+import { Clients } from '../../model/category/client.model.js';
 import { createSuccess, updateSuccess, getSuccess, deleteSuccess, invalid } from '../../helper/message.js'
 
 export const createOne = async (req, res) => {
   try {  
-    const newClientGroups = new ClientGroups(req.body);
-    const result = await newClientGroups.save();
+    const newClient = new Clients(req.body);
+    const result = await newClient.save();
     res.json(createSuccess(result));
   } catch (err) {
     res.json(invalid(err.message))
@@ -14,7 +14,7 @@ export const createOne = async (req, res) => {
 
 export const getAll = async (req, res) => {
   try {  
-    const result = await ClientGroups.find();
+    const result = await Clients.find();
     return res.json(getSuccess(result));
   } catch (err) {
     return res.json(invalid(err.message))
@@ -23,7 +23,7 @@ export const getAll = async (req, res) => {
 
 export const getOneById = async (req, res) => {
   try {   
-    const result = await ClientGroups.findById({_id: req.params.id});
+    const result = await Clients.findById({_id: req.params.id});
     if (result === null) throw ({message: 'does not exist'});
     res.json(getSuccess(result));
   } catch (err) {
@@ -33,8 +33,8 @@ export const getOneById = async (req, res) => {
 
 export const updateOne = async (req, res) => {
   try {  
-    const result = await ClientGroups.findOneAndUpdate({_id: req.params.id}, req.body, { new: true });
-    if (result === null) throw ({message: 'does not exist'});
+    const result = await Clients.findOneAndUpdate({_id: req.params.id}, req.body, { new: true });
+    if (result === null) throw ({message: 'does not exist', status: 404 });
     else res.json(updateSuccess(result));
   } catch (err) {
     res.json(invalid(err.message))
@@ -43,7 +43,7 @@ export const updateOne = async (req, res) => {
 
 export const deleteOne = async (req, res) => {
   try {  
-    const result = await ClientGroups.findOneAndDelete({_id: req.params.id});
+    const result = await Clients.findOneAndDelete({_id: req.params.id});
     if (result === null) throw ({message: 'does not exist'});
     res.json(deleteSuccess(result));
   } catch (err) {

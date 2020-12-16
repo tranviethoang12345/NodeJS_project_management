@@ -23,13 +23,16 @@ export const getAll = async (req, res) => {
 };
 
 export const getOneById = async (req, res) => {
-  try {   
-    const result = await Departments.findById({_id: req.params.id});
-    if (result === null) throw ({message: 'does not exist'});
-    res.json(getSuccess(result, techStack));
-  } catch (err) {
-    res.json(err)
-  }
+  // try {   
+
+  // } catch (err) {
+  //   res.json(invalid(err.message))
+  //   // next(err);
+  // }
+  const result = await Departments.findById({_id: req.params.id});
+  console.log(result);
+  if (result === null) res.json({ message: 'does not exist'});
+  res.json(getSuccess(result));
 };
 
 export const updateOne = async (req, res) => {

@@ -24,7 +24,7 @@ export const getAll = async (req, res) => {
 export const getOneById = async (req, res) => {
   try {   
     const result = await ProjectTypes.findById({_id: req.params.id});
-    if (result === null) throw ({message: 'does not exist'});
+    if (result === null) throw ({ message: 'does not exist', status: 404 });
     res.json(getSuccess(result));
   } catch (err) {
     res.json(err)
@@ -34,7 +34,7 @@ export const getOneById = async (req, res) => {
 export const updateOne = async (req, res) => {
   try {  
     const result = await ProjectTypes.findOneAndUpdate({_id: req.params.id}, req.body, { new: true });
-    if (result === null) throw ({message: 'does not exist'});
+    if (result === null) throw ({ message: 'does not exist', status: 404 });
     else res.json(updateSuccess(result));
   } catch (err) {
     res.json(invalid(err.message))
@@ -44,7 +44,7 @@ export const updateOne = async (req, res) => {
 export const deleteOne = async (req, res) => {
   try {  
     const result = await ProjectTypes.findOneAndDelete({_id: req.params.id});
-    if (result === null) throw ({message: 'does not exist'});
+    if (result === null) throw ({ message: 'does not exist', status: 404 });
     res.json(deleteSuccess(result));
   } catch (err) {
     res.json(invalid(err.message))
