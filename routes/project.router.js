@@ -1,4 +1,14 @@
-import { createOne, getOneById, updateOne, deleteOne, getAll, filterProject } from '../api_controller/manage/project.controller.js'
+import { 
+  createOne, 
+  getOneById, 
+  updateOne, 
+  deleteOne, 
+  getAll, 
+  filterProjectByStatus,
+  filterProjectByTechStack,
+  filterProjectByType 
+} from '../api_controller/project.controller.js';
+
 import express from 'express';
 
 const router = express.Router();
@@ -13,7 +23,15 @@ router.delete('/projects/:id', deleteOne);
 
 router.get('/projects', getAll);
 
-router.get('/projects/search', filterProject);
+router.get('/projects/seach/status', filterProjectByStatus);
+
+router.get('/projects/search/types', filterProjectByType);
+
+router.get('/projects/search/techstacks', filterProjectByTechStack);
+
+
+
+
+
 
 export { router as projectRouter };
-

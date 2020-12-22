@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const ProjectStatusSchema = new mongoose.Schema ({
-  name: { type: String },
+  name: { type: String, required: true },
   description: { type: String },
   active: { type: Boolean, default: true }
 })

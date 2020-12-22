@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const DepartmentSchema = new Schema(
   {
-    name: { type: String },
+    name: { type: String, required: true },
     description: { type: String },
     techstacks: [ { type: Schema.Types.ObjectId, ref: 'TechStacks' } ],
     projects: [ { type: Schema.Types.ObjectId, ref: 'Projects' } ],

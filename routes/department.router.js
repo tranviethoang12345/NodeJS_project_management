@@ -1,4 +1,10 @@
-import { createOne, getOneById, updateOne, deleteOne, getAll } from '../api_controller/manage/department.controller.js'
+import { 
+  createOne, 
+  getOneById, 
+  updateOne, 
+  deleteOne, 
+  getAll 
+} from '../api_controller/department.controller.js'
 import express from 'express';
 
 const router = express.Router();

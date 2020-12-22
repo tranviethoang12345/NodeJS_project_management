@@ -1,4 +1,10 @@
-import { createOne, getOneById, updateOne, deleteOne, getAll } from '../api_controller/category/projectStatus.controller.js'
+import { 
+  createOne, 
+  getOneById, 
+  updateOne, 
+  deleteOne, 
+  getAll 
+} from '../api_controller/projectStatus.controller.js'
 import express from 'express';
 
 const router = express.Router();

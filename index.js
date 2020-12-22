@@ -1,30 +1,27 @@
 import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import { verifyToken } from './middleware/verifyToken.js';
-import cors from 'cors';
+// import loggers
 import morgan from 'morgan';
 import winston from './helper/logger.js';
-
 // import routes
-import { projectTypeRouter } from './routes/projectType.router.js';
-import { projectStatusRouter } from './routes/projectStatus.router.js';
-import { clientRouter } from './routes/client.router.js';
-import { techStackRouter } from './routes/techStack.router.js';
-import { employeeRouter } from './routes/employee.router.js';
-import { projectRouter } from './routes/project.router.js';
-import { departmentRouter } from "./routes/department.router.js";
+import { routes } from './routes/allRoutes.js';
+
+
 
 // app init
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Running at http://localhost:${port}`);
 });
 
 
-// connect mongoose 
-mongoose.connect('mongodb://localhost/projectManagement', { 
+// mongoose setup 
+mongoose.connect(process.env.dbURL || 'mongodb://localhost/projectManagement', { 
   useNewUrlParser: true, 
   useUnifiedTopology: true, 
   useFindAndModify: false 
@@ -36,6 +33,8 @@ db.once('open', () => {
   // connected! 
 });
 
+// helmet setup
+app.use(helmet());
 
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -50,13 +49,5 @@ app.use(verifyToken)
 app.use(morgan('combined', { stream: winston.stream }));
 
 // router setup
-app.use('/api', [
-  projectTypeRouter,
-  projectStatusRouter,
-  clientRouter,
-  techStackRouter,
-  employeeRouter,
-  projectRouter,
-  departmentRouter
-]);
+app.use('/api', routes);
 

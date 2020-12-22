@@ -1,16 +1,16 @@
 export const getSuccess = (data) => {
   return {
     message: `get successfully`,
-    messageCode: `GET SUCCESSFULLY`, 
+    messageCode: `GET SUCCESSFULLY`,
     status: 200,
     data: data
   }
 }
 
-export const createSuccess = (data) => { 
+export const createSuccess = (data) => {
   return {
     message: `created successfully`,
-    messageCode: `CREATED SUCCESSFULLY`, 
+    messageCode: `CREATED SUCCESSFULLY`,
     status: 201,
     data: data
   }
@@ -19,7 +19,7 @@ export const createSuccess = (data) => {
 export const updateSuccess = (data) => {
   return {
     message: `updated successfully`,
-    messageCode: `UPDATED SUCCESSFULLY`, 
+    messageCode: `UPDATED SUCCESSFULLY`,
     status: 200,
     data: data
   }
@@ -28,7 +28,7 @@ export const updateSuccess = (data) => {
 export const deleteSuccess = () => {
   return {
     message: `deleted successfully`,
-    messageCode: `DELETED SUCCESSFULLY`, 
+    messageCode: `DELETED SUCCESSFULLY`,
     status: 204,
   }
 }
@@ -46,8 +46,7 @@ export const invalid = (err) => {
   return {
     message: err,
     messageCode: `INVALID REQUEST`,
-    status: 400,
-    data: []
+    status: 400
   }
 }
 
