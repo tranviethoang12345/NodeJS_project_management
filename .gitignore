@@ -1,4 +1,6 @@
 # hide node_modules
 node_modules
 logs
-
+.env
+coverage
+.nyc_output

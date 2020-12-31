@@ -1,14 +1,21 @@
 {
-  "name": "demo-express",
+  "name": "project-manager",
   "version": "1.0.0",
-  "description": "",
+  "description": "project-manager demo project",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel index.js",
+    "lint": "eslint src",
     "start": "nodemon index.js",
-    "transpile": "babel ./server --out-dir"
+    "test": "mocha --recursive ./test",
+    "transpile": "babel ./server --out-dir",
+    "coverage": "nyc --check-coverage --reporter=html npm run test --exit"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "author": "viet anh",
   "license": "ISC",
@@ -16,18 +23,32 @@
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.8",
     "@babel/preset-env": "^7.12.7",
-    "nodemon": "^2.0.6"
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0"
   },
   "dependencies": {
     "app-root-path": "^3.0.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "chai-as-promised": "^7.1.1",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.15",
     "morgan": "^1.10.0",
+    "nock": "^13.0.5",
+    "signale": "^1.4.0",
+    "sinon": "^9.2.2",
+    "supertest": "^6.0.1",
     "winston": "^3.3.3"
   }
 }
