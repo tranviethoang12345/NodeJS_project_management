@@ -1,7 +1,4 @@
-'use strict';
-
-/*configuration specific production*/
-const path = require("path");
+import path from 'path';
 
 module.exports = {
   host: 'localhost',
